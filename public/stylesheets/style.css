@@ -1,8 +1,22 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	height: 100vh;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
+	background: linear-gradient(to bottom, #1e5799 0%, #2989d8 0%, #7db9e8 84%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
 }
 
 a {
-  color: #00B7FF;
+	color: #ff4800;
+	font-weight: bold;
+}
+
+p {
+	margin-bottom: 0 !important;
+	margin-left: 2 !important;
+}
+
+#train {
+	margin-right: 1em !important;
 }

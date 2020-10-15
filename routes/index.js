@@ -23,7 +23,7 @@ var date = [
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("login");
 });
 
 // Remplissage de la base de donnée, une fois suffit
