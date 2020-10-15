@@ -24,7 +24,7 @@ var isEmpty;
 var journey;
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "One Way ticket" });
+  res.render("login", { title: "One Way ticket" });
 });
 
 router.get("/homepage", function (req, res, next) {
@@ -44,6 +44,7 @@ router.post("/search", async function (req, res, next) {
   // console.log(journey);
   // console.log(isEmpty);
   res.render("search", { title: "One Way ticket", journey, isEmpty });
+
 });
 
 // Remplissage de la base de donnée, une fois suffit
