@@ -20,3 +20,22 @@ p {
 #train {
 	margin-right: 1em !important;
 }
+
+.form {
+	padding: 2rem !important;
+	display: flex !important;
+}
+
+.div1 {
+	margin-top: 7rem;
+}
+
+.input {
+	margin: 1rem;
+}
+
+#titlesign {
+	text-align: center !important;
+	color: white;
+	font-size: 22px;
+}
