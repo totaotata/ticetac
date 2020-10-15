@@ -33,18 +33,20 @@ router.get("/homepage", function (req, res, next) {
 router.post("/search", async function (req, res, next) {
   var from = req.body.from;
   var to = req.body.to;
-
-  journey = await journeyModel.find({ departure: from, arrival: to });
-
+  var date = new Date(req.body.date);
+  // console.log(date);
+  journey = await journeyModel.find({
+    departure: from,
+    arrival: to,
+    date: date,
+  });
+  console.log(journey);
   if (journey == "") {
     isEmpty = true;
   } else {
     isEmpty = false;
   }
-  // console.log(journey);
-  // console.log(isEmpty);
   res.render("search", { title: "One Way ticket", journey, isEmpty });
-
 });
 
 // Remplissage de la base de donnée, une fois suffit
