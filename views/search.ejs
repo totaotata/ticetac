@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
+    <%- include('navbar'); %>
     <h1>Tickets available on <%= journey[0].date %></h1>
     <!-- <form action="/homepage" method="POST">
       <input
@@ -42,30 +43,32 @@
     </center> -->
 
     <!-- RESULT -->
-
-    <div id="result">
-      <% for (let i = 0; i < journey.length; i++) { %>
-      <ul>
-        <li class="coord">
-          <div class="card">
-            <div class="card-body">
-              <ul id="infos">
-                <li id="trajet">
-                  <%= journey[i].departure %>/<%= journey[i].arrival %>
-                </li>
-                <li id="departureTime"><%= journey[i].departureTime %></li>
-                <li id="departureTime"><%= journey[i].price %>€</li>
-                <li id="go">
-                  <button type="button" class="btn btn-danger">OK</button>
-                </li>
-              </ul>
+    <div class="container d-flex justify-content-center">
+      <div id="result">
+        <% for (let i = 0; i < journey.length; i++) { %>
+        <ul>
+          <li class="coord">
+            <div class="card">
+              <div class="card-body">
+                <ul id="infos">
+                  <li id="trajet">
+                    <b><%= journey[i].departure %>/<%= journey[i].arrival %></b>
+                  </li>
+                  <li id="departureTime">
+                    train departure at : <%= journey[i].departureTime %> pm
+                  </li>
+                  <li id="price">
+                    <b><%= journey[i].price %> €</b>
+                    <button type="button" class="btn btn-danger">OK</button>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
-      <% } %>
+          </li>
+        </ul>
+        <% } %>
+      </div>
     </div>
-
     <!-- SCRIPT -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
