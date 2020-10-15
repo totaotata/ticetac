@@ -17,32 +17,38 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
+    <%- include('navbar'); %>
     <h1><%= title %></h1>
     <div class="container d-flex justify-content-center">
-      
+      <form action="/search" method="POST" id="form-search">
+        <input
+          class="form-control"
+          type="text"
+          name="from"
+          id="from"
+          placeholder="From : Paris, Marseille..."
+        />
+        <input
+          class="form-control"
+          type="text"
+          name="to"
+          id="to"
+          placeholder="To: Lille, Nantes..."
+        />
+        <input type="submit" class="btn btn-danger" value="Go" />
+      </form>
+      <br />
+      <br />
     </div>
-    <form action="/search" method="POST">
-      <input
-        type="text"
-        name="from"
-        id="from"
-        placeholder="From : Paris, Marseille..."
-      />
-      <input type="text" name="to" id="to" placeholder="To: Lille, Nantes..." />
-      <input type="submit" class="btn btn-danger" value="Go" />
-    </form>
-    <center>
-      <br />
-      <br />
 
-      <img
-        src="/images/landmark.png"
-        width="200px"
-        height="200px"
-        alt="landmark"
-        srcset=""
-      />
-    </center>
+    <img
+      id="img-brand"
+      src="/images/landmark.png"
+      width="200px"
+      height="200px"
+      alt="landmark"
+      srcset=""
+    />
 
     <!-- SCRIPT -->
     <script
