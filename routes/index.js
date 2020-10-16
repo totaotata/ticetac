@@ -24,12 +24,17 @@ var isEmpty;
 var journey;
 var journeyPanier = [];
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("login", { title: "One Way ticket" });
 });
 
 router.get("/homepage", function (req, res, next) {
+  console.log(req.session);
   res.render("homepage", { title: "One Way ticket", journey, isEmpty });
 });
 router.post("/search", async function (req, res, next) {
@@ -38,8 +43,8 @@ router.post("/search", async function (req, res, next) {
   var date = new Date(req.body.date);
   // console.log(date);
   journey = await journeyModel.find({
-    departure: from,
-    arrival: to,
+    departure: capitalizeFirstLetter(from),
+    arrival: capitalizeFirstLetter(to),
     date: date,
   });
   console.log(journey);
@@ -101,6 +106,7 @@ router.get("/result", function (req, res, next) {
 router.get("/panier", function (req, res, next) {
   req.session.train = JSON.parse(req.query.train);
   journeyPanier.push(req.session.train);
+  console.log(journeyPanier);
   res.render("panier", { title: "Panier", journeyPanier });
 });
 
