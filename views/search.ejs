@@ -38,7 +38,9 @@
                   </li>
                   <li id="price">
                     <b><%= journey[i].price %> €</b>
-                    <button type="button" class="btn btn-danger">OK</button>
+                    <a href="/panier?train=<%= JSON.stringify(journey[i]) %>"
+                      ><button type="button" class="btn btn-danger">OK</button>
+                    </a>
                   </li>
                 </ul>
               </div>
