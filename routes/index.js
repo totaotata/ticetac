@@ -22,6 +22,8 @@ var date = [
 ];
 var isEmpty;
 var journey;
+var journeyPanier = [];
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("login", { title: "One Way ticket" });
@@ -97,7 +99,9 @@ router.get("/result", function (req, res, next) {
 // PANIER
 
 router.get("/panier", function (req, res, next) {
-  res.render("panier", { title: "Panier" });
+  req.session.train = JSON.parse(req.query.train);
+  journeyPanier.push(req.session.train);
+  res.render("panier", { title: "Panier", journeyPanier });
 });
 
 module.exports = router;

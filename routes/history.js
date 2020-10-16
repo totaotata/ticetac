@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var HistoryModel = require("../models/histories");
 
-// ici route qui vient du panier, récuperer les informations des voyages, 
 
 router.get("/", function (req, res, next) {
   res.render("last-trip");

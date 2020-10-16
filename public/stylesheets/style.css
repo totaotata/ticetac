@@ -109,3 +109,8 @@ ul {
 
 .confirm {
 }
+
+#btn-panier {
+  display: flex;
+  justify-content: space-around;
+}
