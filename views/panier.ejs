@@ -34,10 +34,10 @@
           </thead>
 
           <tbody>
-            <% var total = 0; %> <% for (let i = 0; i < journeyPanier.length;
-            i++) { %>
+            <% var total = 0; var count = 1; %> <% for (let i = 0; i <
+            journeyPanier.length; i++) { %>
             <tr>
-              <th scope="row">1</th>
+              <th scope="row"><%= count++%></th>
               <td>
                 <%= journeyPanier[i].departure%>/<%= journeyPanier[i].arrival%>
               </td>
@@ -94,7 +94,15 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">...</div>
+              <div class="modal-body">
+                <p>
+                  Confirmez vous ces <b><%= journeyPanier.length %></b> trajets
+                  pour un total de <b><%= total %>€ </b> ?
+                </p>
+
+                <p></p>
+              </div>
+
               <div class="modal-footer">
                 <button
                   type="button"
