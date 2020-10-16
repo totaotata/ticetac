@@ -3,40 +3,51 @@ var router = express.Router();
 var HistoryModel = require("../models/histories");
 
 
-router.get("/", function (req, res, next) {
-  res.render("last-trip");
+router.post("/", async function (req, res, next) {
+
+console.log(req.session.panier);
+// var panier = JSON.parse(req.body.panier);
+
+
+  var from = panier.departure;
+  var to = panier.arrival;
+  var date = new Date(panier.date);
+  var depT = panier.departureTime
+  var price = panier.price
+
+
+
+var newHistory = new HistoryModel ({
+  journeys: {
+    departure: from,
+    arrival: to,
+    date: date,
+    departureTime: depT,
+    price: price
+    },
+  users: req.session.id
+});
+var history = await newHistory.save()
+
+res.redirect("homepage")
 });
 
-// router.get("/", async function (req, res, next) {
 
-//   var from = req.query.from;
-//   var to = req.query.to;
-//   var date = new Date(req.query.date);
-//   var depT = req.query.depT
-//   var price = req.query.price
+// route navbar last-trip
+router.get("/last-trip", async function (req, res, next) {
 
-//   var id = req.session.user.id
+  var history = await HistoryModel.findOne(
+     { users: req.session.id}
+  );
 
-// var newHistory = new HistoryModel ({
-//   journeys: {
-//     departure: from,
-//     arrival: to,
-//     date: date,
-//     departureTime: depT,
-//     price: price
-//     },
-//   users: req.session.user.id
-// });
-// var history = await newHistory.save()
+  if (history == "") {
+    historyisEmpty = true;
+  } else {
+    historyisEmpty = false;
+  }
 
-//   history = await HistoryModel.findById(users).populate('journeys').exec();
+  res.redirect("last-trip", { title: "Last trip"}, history, historyisEmpty)
+});
 
-//   if (history == "") {
-//     historyisEmpty = true;
-//   } else {
-//     historyisEmpty = false;
-//   }
-//   res.render("last-trip", { title: "Last trip" },history, historyisEmpty);
-// });
 
 module.exports = router;

@@ -22,8 +22,8 @@ router.post('/sign-up', async function (req, res, next) {
       res.redirect('/login');
 		} else {
 			var newUser = new userModel({
-        name: req.body.name,
-        firstname: req.body.firstname,
+				name: req.body.name,
+				firstname: req.body.firstname,
 				email: req.body.email,
 				password: req.body.password,
 			});
@@ -33,7 +33,7 @@ router.post('/sign-up', async function (req, res, next) {
       console.log(newUserSave)
 
 			// stockez le nom et l’ID en session
-			req.session.user = { name: newUserSave.username, id: newUserSave._id };
+			req.session = { name: newUserSave.name, id: newUserSave._id };
 		}
   }
   res.redirect('/homepage');

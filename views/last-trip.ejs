@@ -23,8 +23,13 @@
 
     <div class="container d-flex justify-content-center">
       <div id="result">
-        <% if (historyIsEmpty == false) { %>
+
+        <% if (historyisEmpty == true) { %>
+
+        <h1> No trips recorded yet!</h1>
         
+        <% } else {%>
+
         <% for (let i = 0; i < history.journeys.length; i++) { %>
         <ul>
           <li class="coord">
@@ -42,20 +47,17 @@
                   </li>
                   <li id="price">
                     <b><%= history.journeys[i].price %> €</b>
-                    <button type="button" class="btn btn-danger">OK</button>
+                    <a href="/homepage"> 
+                      <button type="button" class="btn btn-danger">Home</button>
+                      </a>
                   </li>
                 </ul>
               </div>
             </div>
           </li>
         </ul>
-        <% if (historyisEmpty == true) { %>
-        <h1> No trips recorded yet!</h1>
-        <br />
-        <a href="/#"
-          ><button type="button" class="btn btn-danger">confirm</button></a
-        >
         <% } %>
+     <% } {%>
       </div>
     </div>
 
