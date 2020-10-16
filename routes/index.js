@@ -94,4 +94,10 @@ router.get("/result", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
+// PANIER
+
+router.get("/panier", function (req, res, next) {
+  res.render("panier", { title: "Panier" });
+});
+
 module.exports = router;

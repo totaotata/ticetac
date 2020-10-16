@@ -7,6 +7,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var historyRouter = require("./routes/history");
+
 var models = require("./routes/index");
 var session = require("express-session");
 var app = express();
@@ -31,6 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/history", historyRouter);
 
 app.locals.dateFormat = function (date) {
   var newDate = new Date(date);
