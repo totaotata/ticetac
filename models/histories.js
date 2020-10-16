@@ -1,7 +1,15 @@
 var mongoose = require("mongoose");
 
 var HistorySchema = mongoose.Schema({
-  journeys: [{ type: mongoose.Schema.Types.ObjectId, ref: "journey" }],
+  journeys: [
+    {
+      departure: String,
+      arrival: String,
+      date: Date,
+      departureTime: String,
+      price: Number,
+    },
+  ],
   users: String,
 });
 

@@ -111,9 +111,14 @@
                 >
                   Close
                 </button>
-                <a href="/history?panier=<%= JSON.stringify(journeyPanier) %>">
-                  <button type="button" class="btn btn-danger">Valider</button>
-                </a>
+                <form action="/history" method="POST">
+                  <input
+                    type="hidden"
+                    name="panier"
+                    value="<%= JSON.stringify(journeyPanier) %>"
+                  />
+                  <input type="submit" value="Valider" class="btn btn-danger" />
+                </form>
               </div>
             </div>
           </div>

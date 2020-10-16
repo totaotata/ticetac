@@ -34,7 +34,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/homepage", function (req, res, next) {
-  console.log(req.session);
+  // console.log(req.session);
   res.render("homepage", { title: "One Way ticket", journey, isEmpty });
 });
 router.post("/search", async function (req, res, next) {
@@ -106,7 +106,6 @@ router.get("/result", function (req, res, next) {
 router.get("/panier", function (req, res, next) {
   req.session.train = JSON.parse(req.query.train);
   journeyPanier.push(req.session.train);
-  console.log(journeyPanier);
   res.render("panier", { title: "Panier", journeyPanier });
 });
 
